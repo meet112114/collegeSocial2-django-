@@ -14,7 +14,22 @@ class CreateUser(generics.CreateAPIView):
     queryset = User.object.all()
     serializer_class = UserSerializer
       
+    def perform_create(self, serializer):
+        # Get the uploaded image file, if any
+        image_file = self.request.data.get('image')
 
+        # Check if an image file was provided
+        if image_file:
+            serializer.save(image=image_file)
+        else:
+            # Set a default image path if no image was provided
+            serializer.save(image='profile_images/default_image.jpg')
+
+        # Call the parent class's perform_create to save the user
+        super().perform_create(serializer)
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
 class LoginUserView(APIView):
     
     def post(self , request):
@@ -36,6 +51,28 @@ class LoginUserView(APIView):
 class RetriveUser(generics.RetrieveAPIView):
     queryset = User.object.all()
     serializer_class = UserSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        # user = request.user 
+        # serializer = self.serializer_class(user)
+        # return Response(serializer.data)
+    
+        user = request.user 
+        serializer = self.serializer_class(user)
+
+        # Modify the serializer data to include absolute URL for the image field
+        user_data = serializer.data
+        user_data['image'] = request.build_absolute_uri(user_data['image'])  # Assuming 'image' is the field name for the image
+        
+        return Response(user_data)
+
+class RetriveUserByID(generics.RetrieveAPIView):
+    queryset = User.object.all()
+    serializer_class = UserSerializer
+
+  
 
 class RetriveAllUser(generics.ListAPIView):
     queryset = User.object.all()

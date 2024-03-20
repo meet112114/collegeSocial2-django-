@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField()
     password = serializers.CharField()
     bio = serializers.CharField()
-    image = serializers.ImageField()
+    # image = serializers.ImageField()
 
     def create(self , validate_data):
         return User.object.create(**validate_data)

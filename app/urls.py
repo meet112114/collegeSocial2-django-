@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from app.views.user import CreateUser , LoginUserView ,RetriveUser , UpdateUser ,DestroyUser ,RetriveAllUser
+from app.views.user import CreateUser , LoginUserView ,RetriveUser , UpdateUser ,DestroyUser ,RetriveAllUser , RetriveUserByID
 from app.views.post import CreatePost ,RetrivePost , RetrieveUserPosts , RetrieveAllPosts ,UpdatePost , DestroyPost , LikePost , LikePostExist, CommentPost , FollowUser
 from django.conf.urls.static import static
 from django.conf import settings
@@ -10,7 +10,8 @@ urlpatterns = [
     path('user/create/', CreateUser.as_view()),
     path('user/get/', RetriveAllUser.as_view()),
     path('user/login/' , LoginUserView.as_view()),
-    path('user/<int:pk>/', RetriveUser.as_view()),
+    path('user/', RetriveUser.as_view()),
+    path('user/<int:pk>', RetriveUserByID.as_view()),
     path('user/update/', UpdateUser.as_view()),
     path('user/delete/<int:pk>', DestroyUser.as_view()),
 
