@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import User , Post ,PostLike , PostComment , UserFollow
+from app.models import User , Post ,PostLike ,CO ,EE ,EJ , ME , IF
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,26 +50,27 @@ class PostLikeSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True)
     post = serializers.PrimaryKeyRelatedField(read_only=True)
 
-class CommentSerializer(serializers.ModelSerializer):
+class COSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PostComment
-        fields = "__all__"
+        model = CO
+        fields = '__all__'
 
-
-    comment_text = serializers.CharField(max_length=264)
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
-    post = serializers.PrimaryKeyRelatedField(read_only=True)
-
-    def save(self, **kwargs):
-        print(kwargs)
-        self.post = kwargs["post"]
-        return super().save(**kwargs)
-    
-
-class UserFollowSerializer(serializers.ModelSerializer):
+class IFSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserFollow
-        fields = "__all__"
+        model = IF
+        fields = '__all__'
 
-    user = serializers.PrimaryKeyRelatedField(read_only=True)
-    follows_id = serializers.PrimaryKeyRelatedField(read_only=True)
+class MESerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ME
+        fields = '__all__'
+
+class EESerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EE
+        fields = '__all__'
+
+class EJSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EJ
+        fields = '__all__'

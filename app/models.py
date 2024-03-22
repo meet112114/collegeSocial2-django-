@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from app.manager import UserManager
+
 # Create your models here.
 
 class User(AbstractBaseUser):
@@ -37,13 +38,22 @@ class PostLike(models.Model):
     class META:
         unique_together = (("post","user"),)
 
-class PostComment(models.Model):
-    comment_text = models.CharField(max_length=264)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, null=False, on_delete=models.CASCADE , default= "1")
+class CO(models.Model):
+    text = models.CharField(max_length = 64)
+    created_at = models.DateField(auto_now_add=True)
 
-class UserFollow(models.Model):
-    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="src_follow")
-    follows = models.ForeignKey(User, null=False, on_delete=models.CASCADE, related_name="dest_follow")
+class IF(models.Model):
+    text = models.CharField(max_length = 64)
+    created_at = models.DateField(auto_now_add=True)
+
+class ME(models.Model):
+    text = models.CharField(max_length = 64)
+    created_at = models.DateField(auto_now_add=True)
+
+class EE(models.Model):
+    text = models.CharField(max_length = 64)
+    created_at = models.DateField(auto_now_add=True)
+
+class EJ(models.Model):
+    text = models.CharField(max_length = 64)
+    created_at = models.DateField(auto_now_add=True)

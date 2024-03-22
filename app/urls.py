@@ -2,7 +2,9 @@
 from django.contrib import admin
 from django.urls import path
 from app.views.user import CreateUser , LoginUserView ,RetriveUser , UpdateUser ,DestroyUser ,RetriveAllUser , RetriveUserByID
-from app.views.post import CreatePost ,RetrivePost , RetrieveUserPosts , RetrieveAllPosts ,UpdatePost , DestroyPost , LikePost , LikePostExist, CommentPost , FollowUser
+from app.views.post import CreatePost ,RetrivePost , RetrieveUserPosts , RetrieveAllPosts ,UpdatePost , DestroyPost , LikePost , LikePostExist
+from app.views.announce import COCreateAPIView ,EECreateAPIView ,EJCreateAPIView , MECreateAPIView , IFCreateAPIView 
+from app.views.announce import COListAPIView , EEListAPIView ,EJListAPIView , IFListAPIView ,MEListAPIView
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -24,8 +26,17 @@ urlpatterns = [
     path('post/Getlike/<int:pk>/', LikePostExist.as_view()),
     path('posts/', RetrieveAllPosts.as_view(), name='retrieve-all-posts'),
 
-    path('post/comment/<int:pk>/', CommentPost.as_view()),
+    path('announce/co/', COCreateAPIView.as_view()),
+    path('announce/ee/', EECreateAPIView.as_view()),
+    path('announce/ej/', EJCreateAPIView.as_view()),
+    path('announce/me/', MECreateAPIView.as_view()),
+    path('announce/if/', IFCreateAPIView.as_view()),
 
-    path('user/follow/<int:pk>/', FollowUser.as_view()),
+    path('announce/get/co/', COListAPIView.as_view()),
+    path('announce/get/ee/', EEListAPIView.as_view()),
+    path('announce/get/ej/', EJListAPIView.as_view()),
+    path('announce/get/me/', MEListAPIView.as_view()),
+    path('announce/get/if/', IFListAPIView.as_view()),
+
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
