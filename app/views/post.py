@@ -1,5 +1,5 @@
 from rest_framework import generics
-from app.models import Post , PostLike , User 
+from app.models import Post , PostLike  
 from app.serializer import PostSerializer ,PostLikeSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated

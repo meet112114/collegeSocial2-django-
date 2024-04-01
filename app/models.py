@@ -11,8 +11,6 @@ class User(AbstractBaseUser):
     first_name = models.CharField(max_length=30 , default = "name")  
     last_name = models.CharField(max_length=30 , default = "name")   
     bio = models.CharField(max_length=164 ,  null = True , default = "Update your bio")
-    image = models.ImageField(upload_to='profile_images/',  null=True , default='profile_images/defaultprp.jpg')
-
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=True)
@@ -28,8 +26,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='post_images/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User , null =True , on_delete = models.SET_NULL)
-    
+    username = models.CharField(max_length = 32 , default = 'NES_dept')
 
 class PostLike(models.Model):
     post = models.ForeignKey(Post, null=False , on_delete = models.CASCADE)

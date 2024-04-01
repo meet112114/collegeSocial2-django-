@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
     username = serializers.CharField()
     password = serializers.CharField()
     bio = serializers.CharField()
-    # image = serializers.ImageField()
+
 
     def create(self , validate_data):
         return User.object.create(**validate_data)
@@ -30,8 +30,7 @@ class PostSerializer(serializers.ModelSerializer):
     title = serializers.CharField()
     description = serializers.CharField()
     image = serializers.ImageField()
-    user = serializers.CurrentUserDefault()
-
+    username = serializers.CharField()
     def update(self, instance, validated_data):
         if instance.user.id != validated_data.get("user").id:
             raise serializers.ValidationError("You are not allowed to modify this post.")

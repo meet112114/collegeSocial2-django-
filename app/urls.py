@@ -8,12 +8,14 @@ from app.views.announce import COListAPIView , EEListAPIView ,EJListAPIView , IF
 from django.conf.urls.static import static
 from django.conf import settings
 
+
+
 urlpatterns = [
     path('user/create/', CreateUser.as_view()),
     path('user/get/', RetriveAllUser.as_view()),
     path('user/login/' , LoginUserView.as_view()),
     path('user/', RetriveUser.as_view()),
-    path('user/<int:pk>', RetriveUserByID.as_view()),
+    path('user/<int:pk>/', RetriveUserByID.as_view()),
     path('user/update/', UpdateUser.as_view()),
     path('user/delete/<int:pk>', DestroyUser.as_view()),
 
@@ -37,6 +39,5 @@ urlpatterns = [
     path('announce/get/ej/', EJListAPIView.as_view()),
     path('announce/get/me/', MEListAPIView.as_view()),
     path('announce/get/if/', IFListAPIView.as_view()),
-
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
