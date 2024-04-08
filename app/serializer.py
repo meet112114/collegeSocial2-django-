@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from app.models import User , Post ,PostLike ,CO ,EE ,EJ , ME , IF
-
+from app.models import User , Post ,PostLike ,CO ,EE ,EJ , ME , IF , Sports ,Complaints
+from app.models import LecturesCO , LecturesEE ,LecturesEJ ,LecturesIF ,LecturesME 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -72,4 +72,43 @@ class EESerializer(serializers.ModelSerializer):
 class EJSerializer(serializers.ModelSerializer):
     class Meta:
         model = EJ
+        fields = '__all__'
+
+
+
+
+
+class LectureSerializerIF(serializers.ModelSerializer):
+    class Meta:
+        model = LecturesIF
+        fields = '__all__'
+
+class LectureSerializerCO(serializers.ModelSerializer):
+    class Meta:
+        model = LecturesCO
+        fields = '__all__'
+
+class LectureSerializerME(serializers.ModelSerializer):
+    class Meta:
+        model = LecturesME
+        fields = '__all__'
+
+class LectureSerializerEE(serializers.ModelSerializer):
+    class Meta:
+        model = LecturesEE
+        fields = '__all__'
+
+class LectureSerializerEJ(serializers.ModelSerializer):
+    class Meta:
+        model = LecturesEJ
+        fields = '__all__'
+
+class SportsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sports
+        fields = '__all__'
+
+class complaintSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Complaints
         fields = '__all__'

@@ -5,6 +5,8 @@ from app.views.user import CreateUser , LoginUserView ,RetriveUser , UpdateUser 
 from app.views.post import CreatePost ,RetrivePost , RetrieveUserPosts , RetrieveAllPosts ,UpdatePost , DestroyPost , LikePost , LikePostExist
 from app.views.announce import COCreateAPIView ,EECreateAPIView ,EJCreateAPIView , MECreateAPIView , IFCreateAPIView 
 from app.views.announce import COListAPIView , EEListAPIView ,EJListAPIView , IFListAPIView ,MEListAPIView
+from app.views.Lectureview import LecCreateIF , LecCreateCO , LecCreateEE , LecCreateEJ , LecCreateME , SportsApplication , CreateComplaint
+from app.views.Lectureview import LecGetCO , LecGetEE , LecGetEJ , LecGetIF , LecGetME , GetSportsApplication  , GetComplaint
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -39,5 +41,26 @@ urlpatterns = [
     path('announce/get/ej/', EJListAPIView.as_view()),
     path('announce/get/me/', MEListAPIView.as_view()),
     path('announce/get/if/', IFListAPIView.as_view()),
-    
+
+    path('lecture/create/if/' , LecCreateIF.as_view()),
+    path('lecture/get/if/' , LecGetIF.as_view()),
+
+    path('lecture/create/co/' , LecCreateCO.as_view()),
+    path('lecture/get/co/' , LecGetCO.as_view()),
+
+    path('lecture/create/me/' , LecCreateME.as_view()),
+    path('lecture/get/me/' , LecGetME.as_view()),
+
+    path('lecture/create/ee/' , LecCreateEE.as_view()),
+    path('lecture/get/ee/' , LecGetEE.as_view()),
+
+    path('lecture/create/ej/' , LecCreateEJ.as_view()),
+    path('lecture/get/ej/' , LecGetEJ.as_view()),
+
+    path('sports/create/' , SportsApplication.as_view()),
+    path('sports/get/' , GetSportsApplication.as_view()),
+
+    path('complaint/create/' , CreateComplaint.as_view() ) ,
+    path('complaint/get/' , GetComplaint.as_view() ) 
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

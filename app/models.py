@@ -54,3 +54,45 @@ class EE(models.Model):
 class EJ(models.Model):
     text = models.CharField(max_length = 64)
     created_at = models.DateField(auto_now_add=True)
+
+class LecturesIF(models.Model):
+    title = models.CharField(max_length = 32)
+    link = models.CharField(max_length= 64)
+    time = models.CharField(max_length=32 , default = "7:00 AM") 
+    password = models.CharField(max_length=32)
+
+class LecturesCO(models.Model):
+    title = models.CharField(max_length = 32)
+    link = models.CharField(max_length= 64)
+    time = models.CharField(max_length=32 , default = "7:00 AM") 
+    password = models.CharField(max_length=32)
+
+class LecturesME(models.Model):
+    title = models.CharField(max_length = 32)
+    link = models.CharField(max_length= 64)
+    time = models.CharField(max_length=32 , default = "7:00 AM") 
+    password = models.CharField(max_length=32)
+
+class LecturesEE(models.Model):
+    title = models.CharField(max_length = 32)
+    link = models.CharField(max_length= 64)
+    time = models.CharField(max_length=32 , default = "7:00 AM") 
+    password = models.CharField(max_length=32)
+
+class LecturesEJ(models.Model):
+    title = models.CharField(max_length = 32)
+    link = models.CharField(max_length= 64)
+    time = models.CharField(max_length=32 , default = "7:00 AM") 
+    password = models.CharField(max_length=32)
+
+class Sports(models.Model):
+    name = models.CharField(max_length=64)
+    enrollmentId = models.IntegerField()
+    yearAndDept = models.CharField(max_length=16)
+    sport = models.CharField(max_length=32)
+
+class Complaints(models.Model):
+    name = models.CharField(max_length=64)
+    enrollmentId = models.IntegerField()
+    yearAndDept = models.CharField(max_length=16)
+    Complaint = models.CharField(max_length=164)
