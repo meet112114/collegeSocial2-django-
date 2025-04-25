@@ -3,10 +3,17 @@ from django.contrib import admin
 from django.urls import path
 from app.views.user import CreateUser , LoginUserView ,RetriveUser , UpdateUser ,DestroyUser ,RetriveAllUser , RetriveUserByID
 from app.views.post import CreatePost ,RetrivePost , RetrieveUserPosts , RetrieveAllPosts ,UpdatePost , DestroyPost , LikePost , LikePostExist
-from app.views.announce import COCreateAPIView ,EECreateAPIView ,EJCreateAPIView , MECreateAPIView , IFCreateAPIView 
-from app.views.announce import COListAPIView , EEListAPIView ,EJListAPIView , IFListAPIView ,MEListAPIView
-from app.views.Lectureview import LecCreateIF , LecCreateCO , LecCreateEE , LecCreateEJ , LecCreateME , SportsApplication , CreateComplaint
-from app.views.Lectureview import LecGetCO , LecGetEE , LecGetEJ , LecGetIF , LecGetME , GetSportsApplication  , GetComplaint
+
+
+from app.views.announce import BCACreateAPIView ,BSCCreateAPIView ,BAFCreateAPIView , BBICreateAPIView , BMSCreateAPIView 
+
+from app.views.announce import BCAListAPIView , BSCListAPIView ,BAFListAPIView , BBIListAPIView ,BMSListAPIView
+
+from app.views.Lectureview import LecCreateBCA , LecCreateBSC , LecCreateBAF , LecCreateBBI , LecCreateBMS , SportsApplication , CreateComplaint
+
+from app.views.Lectureview import LecGetBCA , LecGetBSC , LecGetBAF , LecGetBBI , LecGetBMS , GetSportsApplication  , GetComplaint 
+
+
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -30,32 +37,32 @@ urlpatterns = [
     path('post/Getlike/<int:pk>/', LikePostExist.as_view()),
     path('posts/', RetrieveAllPosts.as_view(), name='retrieve-all-posts'),
 
-    path('announce/co/', COCreateAPIView.as_view()),
-    path('announce/ee/', EECreateAPIView.as_view()),
-    path('announce/ej/', EJCreateAPIView.as_view()),
-    path('announce/me/', MECreateAPIView.as_view()),
-    path('announce/if/', IFCreateAPIView.as_view()),
+    path('announce/bca/', BCACreateAPIView.as_view()),
+    path('announce/bsc/', BSCCreateAPIView.as_view()),
+    path('announce/bms/', BMSCreateAPIView.as_view()),
+    path('announce/bbi/', BBICreateAPIView.as_view()),
+    path('announce/baf/', BAFCreateAPIView.as_view()),
 
-    path('announce/get/co/', COListAPIView.as_view()),
-    path('announce/get/ee/', EEListAPIView.as_view()),
-    path('announce/get/ej/', EJListAPIView.as_view()),
-    path('announce/get/me/', MEListAPIView.as_view()),
-    path('announce/get/if/', IFListAPIView.as_view()),
+    path('announce/get/bca/', BCAListAPIView.as_view()),
+    path('announce/get/bsc/', BSCListAPIView.as_view()),
+    path('announce/get/bms/', BMSListAPIView.as_view()),
+    path('announce/get/bbi/', BBIListAPIView.as_view()),
+    path('announce/get/baf/', BAFListAPIView.as_view()),
 
-    path('lecture/create/if/' , LecCreateIF.as_view()),
-    path('lecture/get/if/' , LecGetIF.as_view()),
+    path('lecture/create/bca/' , LecCreateBCA.as_view()),
+    path('lecture/get/bca/' , LecGetBCA.as_view()),
 
-    path('lecture/create/co/' , LecCreateCO.as_view()),
-    path('lecture/get/co/' , LecGetCO.as_view()),
+    path('lecture/create/bsc/' , LecCreateBSC.as_view()),
+    path('lecture/get/bsc/' , LecGetBSC.as_view()),
 
-    path('lecture/create/me/' , LecCreateME.as_view()),
-    path('lecture/get/me/' , LecGetME.as_view()),
+    path('lecture/create/bms/' , LecCreateBMS.as_view()),
+    path('lecture/get/bms/' , LecGetBMS.as_view()),
 
-    path('lecture/create/ee/' , LecCreateEE.as_view()),
-    path('lecture/get/ee/' , LecGetEE.as_view()),
+    path('lecture/create/bbi/' , LecCreateBBI.as_view()),
+    path('lecture/get/bbi/' , LecGetBBI.as_view()),
 
-    path('lecture/create/ej/' , LecCreateEJ.as_view()),
-    path('lecture/get/ej/' , LecGetEJ.as_view()),
+    path('lecture/create/baf/' , LecCreateBAF.as_view()),
+    path('lecture/get/baf/' , LecGetBAF.as_view()),
 
     path('sports/create/' , SportsApplication.as_view()),
     path('sports/get/' , GetSportsApplication.as_view()),

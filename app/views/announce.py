@@ -1,44 +1,46 @@
 from rest_framework import generics
-from app.models import CO , EJ ,EE , IF , ME
-from app.serializer import COSerializer ,EJSerializer ,EESerializer , MESerializer , IFSerializer
+from app.models import BCA , BMS , BSC , BBI , BAF
+from app.serializer import BCASerializer ,BAFSerializer ,BSCSerializer , BBISerializer , BMSSerializer
 from rest_framework.response import Response
 
-class COCreateAPIView(generics.CreateAPIView):
-    queryset = CO.objects.all()
-    serializer_class = COSerializer
+class BCACreateAPIView(generics.CreateAPIView):
+    queryset = BCA.objects.all()
+    serializer_class = BCASerializer
 
-class EECreateAPIView(generics.CreateAPIView):
-    queryset = EE.objects.all()
-    serializer_class = EESerializer
+class BSCCreateAPIView(generics.CreateAPIView):
+    queryset = BSC.objects.all()
+    serializer_class = BSCSerializer
 
-class EJCreateAPIView(generics.CreateAPIView):
-    queryset = EJ.objects.all()
-    serializer_class = EJSerializer
+class BAFCreateAPIView(generics.CreateAPIView):
+    queryset = BAF.objects.all()
+    serializer_class = BAFSerializer
 
-class IFCreateAPIView(generics.CreateAPIView):
-    queryset = IF.objects.all()
-    serializer_class = IFSerializer
+class BMSCreateAPIView(generics.CreateAPIView):
+    queryset = BMS.objects.all()
+    serializer_class = BMSSerializer
 
-class MECreateAPIView(generics.CreateAPIView):
-    queryset = ME.objects.all()
-    serializer_class = MESerializer
+class BBICreateAPIView(generics.CreateAPIView):
+    queryset = BBI.objects.all()
+    serializer_class = BBISerializer
 
-class COListAPIView(generics.ListAPIView):
-    queryset = CO.objects.all()
-    serializer_class = COSerializer
 
-class EEListAPIView(generics.ListAPIView):
-    queryset = EE.objects.all()
-    serializer_class = EESerializer
 
-class EJListAPIView(generics.ListAPIView):
-    queryset = EJ.objects.all()
-    serializer_class = EJSerializer
+class BCAListAPIView(generics.ListAPIView):
+    queryset = BCA.objects.all()
+    serializer_class = BCASerializer
 
-class MEListAPIView(generics.ListAPIView):
-    queryset = ME.objects.all()
-    serializer_class = MESerializer
+class BSCListAPIView(generics.ListAPIView):
+    queryset = BSC.objects.all()
+    serializer_class = BSCSerializer
 
-class IFListAPIView(generics.ListAPIView):
-    queryset = IF.objects.all()
-    serializer_class = IFSerializer
+class BAFListAPIView(generics.ListAPIView):
+    queryset = BAF.objects.all()
+    serializer_class = BAFSerializer
+
+class BBIListAPIView(generics.ListAPIView):
+    queryset = BBI.objects.all()
+    serializer_class = BBISerializer
+
+class BMSListAPIView(generics.ListAPIView):
+    queryset = BMS.objects.all()
+    serializer_class = BMSSerializer

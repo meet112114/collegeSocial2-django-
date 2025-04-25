@@ -1,57 +1,57 @@
 from rest_framework import generics
-from app.models import LecturesIF , LecturesEJ  , LecturesCO , LecturesEE , LecturesME , Sports , Complaints
-from app.serializer import LectureSerializerIF , LectureSerializerCO  ,LectureSerializerEE , LectureSerializerEJ , LectureSerializerME , SportsSerializer , complaintSerializers
+from app.models import LecturesBMS , LecturesBAF , LecturesBCA , LecturesBSC , LecturesBBI , Sports , Complaints
+from app.serializer import LectureSerializerBMS , LectureSerializerBCA  ,LectureSerializerBBI , LectureSerializerBSC , LectureSerializerBAF , SportsSerializer , complaintSerializers
 
-class LecCreateIF(generics.CreateAPIView):
-    queryset = LecturesIF.objects.all()
-    serializer_class = LectureSerializerIF
+class LecCreateBCA(generics.CreateAPIView):
+    queryset = LecturesBCA.objects.all()
+    serializer_class = LectureSerializerBCA
 
-class LecGetIF(generics.ListAPIView):
-    queryset = LecturesIF.objects.all()
-    serializer_class = LectureSerializerIF
-
-
-
-class LecCreateCO(generics.CreateAPIView):
-    queryset = LecturesCO.objects.all()
-    serializer_class = LectureSerializerCO
-
-class LecGetCO(generics.ListAPIView):
-    queryset = LecturesCO.objects.all()
-    serializer_class = LectureSerializerCO
+class LecGetBCA(generics.ListAPIView):
+    queryset = LecturesBCA.objects.all()
+    serializer_class = LectureSerializerBCA
 
 
 
+class LecCreateBMS(generics.CreateAPIView):
+    queryset = LecturesBMS.objects.all()
+    serializer_class = LectureSerializerBMS
 
-class LecCreateME(generics.CreateAPIView):
-    queryset = LecturesME.objects.all()
-    serializer_class = LectureSerializerME
-
-class LecGetME(generics.ListAPIView):
-    queryset = LecturesME.objects.all()
-    serializer_class = LectureSerializerME
+class LecGetBMS(generics.ListAPIView):
+    queryset = LecturesBMS.objects.all()
+    serializer_class = LectureSerializerBMS
 
 
 
 
-class LecCreateEE(generics.CreateAPIView):
-    queryset = LecturesEE.objects.all()
-    serializer_class = LectureSerializerEE
+class LecCreateBAF(generics.CreateAPIView):
+    queryset = LecturesBAF.objects.all()
+    serializer_class = LectureSerializerBAF
 
-class LecGetEE(generics.ListAPIView):
-    queryset = LecturesEE.objects.all()
-    serializer_class = LectureSerializerEE
-
-
+class LecGetBAF(generics.ListAPIView):
+    queryset = LecturesBAF.objects.all()
+    serializer_class = LectureSerializerBAF
 
 
-class LecCreateEJ(generics.CreateAPIView):
-    queryset = LecturesEJ.objects.all()
-    serializer_class = LectureSerializerEJ
 
-class LecGetEJ(generics.ListAPIView):
-    queryset = LecturesEJ.objects.all()
-    serializer_class = LectureSerializerEJ
+
+class LecCreateBBI(generics.CreateAPIView):
+    queryset = LecturesBBI.objects.all()
+    serializer_class = LectureSerializerBBI
+
+class LecGetBBI(generics.ListAPIView):
+    queryset = LecturesBBI.objects.all()
+    serializer_class = LectureSerializerBBI
+
+
+
+
+class LecCreateBSC(generics.CreateAPIView):
+    queryset = LecturesBSC.objects.all()
+    serializer_class = LectureSerializerBSC
+
+class LecGetBSC(generics.ListAPIView):
+    queryset = LecturesBSC.objects.all()
+    serializer_class = LectureSerializerBSC
 
 
 class SportsApplication(generics.CreateAPIView):
@@ -69,3 +69,4 @@ class CreateComplaint(generics.CreateAPIView):
 class GetComplaint(generics.ListAPIView):
     queryset = Complaints.objects.all()
     serializer_class = complaintSerializers
+

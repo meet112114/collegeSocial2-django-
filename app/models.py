@@ -35,51 +35,51 @@ class PostLike(models.Model):
     class META:
         unique_together = (("post","user"),)
 
-class CO(models.Model):
+class BCA(models.Model):
     text = models.CharField(max_length = 64)
     created_at = models.DateField(auto_now_add=True)
 
-class IF(models.Model):
+class BMS(models.Model):
     text = models.CharField(max_length = 64)
     created_at = models.DateField(auto_now_add=True)
 
-class ME(models.Model):
+class BBI(models.Model):
     text = models.CharField(max_length = 64)
     created_at = models.DateField(auto_now_add=True)
 
-class EE(models.Model):
+class BSC(models.Model):
     text = models.CharField(max_length = 64)
     created_at = models.DateField(auto_now_add=True)
 
-class EJ(models.Model):
+class BAF(models.Model):
     text = models.CharField(max_length = 64)
     created_at = models.DateField(auto_now_add=True)
 
-class LecturesIF(models.Model):
+class LecturesBMS(models.Model):
     title = models.CharField(max_length = 32)
     link = models.CharField(max_length= 64)
     time = models.CharField(max_length=32 , default = "7:00 AM") 
     password = models.CharField(max_length=32)
 
-class LecturesCO(models.Model):
+class LecturesBCA(models.Model):
     title = models.CharField(max_length = 32)
     link = models.CharField(max_length= 64)
     time = models.CharField(max_length=32 , default = "7:00 AM") 
     password = models.CharField(max_length=32)
 
-class LecturesME(models.Model):
+class LecturesBBI(models.Model):
     title = models.CharField(max_length = 32)
     link = models.CharField(max_length= 64)
     time = models.CharField(max_length=32 , default = "7:00 AM") 
     password = models.CharField(max_length=32)
 
-class LecturesEE(models.Model):
+class LecturesBSC(models.Model):
     title = models.CharField(max_length = 32)
     link = models.CharField(max_length= 64)
     time = models.CharField(max_length=32 , default = "7:00 AM") 
     password = models.CharField(max_length=32)
 
-class LecturesEJ(models.Model):
+class LecturesBAF(models.Model):
     title = models.CharField(max_length = 32)
     link = models.CharField(max_length= 64)
     time = models.CharField(max_length=32 , default = "7:00 AM") 

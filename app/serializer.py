@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from app.models import User , Post ,PostLike ,CO ,EE ,EJ , ME , IF , Sports ,Complaints
-from app.models import LecturesCO , LecturesEE ,LecturesEJ ,LecturesIF ,LecturesME 
+from app.models import User , Post ,PostLike ,BCA , BSC , BBI , BMS , BAF , Sports ,Complaints
+from app.models import LecturesBCA , LecturesBSC ,LecturesBBI ,LecturesBMS ,LecturesBAF 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -49,58 +49,58 @@ class PostLikeSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only=True)
     post = serializers.PrimaryKeyRelatedField(read_only=True)
 
-class COSerializer(serializers.ModelSerializer):
+class BCASerializer(serializers.ModelSerializer):
     class Meta:
-        model = CO
+        model = BCA
         fields = '__all__'
 
-class IFSerializer(serializers.ModelSerializer):
+class BMSSerializer(serializers.ModelSerializer):
     class Meta:
-        model = IF
+        model = BMS
         fields = '__all__'
 
-class MESerializer(serializers.ModelSerializer):
+class BBISerializer(serializers.ModelSerializer):
     class Meta:
-        model = ME
+        model = BBI
         fields = '__all__'
 
-class EESerializer(serializers.ModelSerializer):
+class BSCSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EE
+        model = BSC
         fields = '__all__'
 
-class EJSerializer(serializers.ModelSerializer):
+class BAFSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EJ
+        model = BAF
         fields = '__all__'
 
 
 
 
 
-class LectureSerializerIF(serializers.ModelSerializer):
+class LectureSerializerBMS(serializers.ModelSerializer):
     class Meta:
-        model = LecturesIF
+        model = LecturesBMS
         fields = '__all__'
 
-class LectureSerializerCO(serializers.ModelSerializer):
+class LectureSerializerBCA(serializers.ModelSerializer):
     class Meta:
-        model = LecturesCO
+        model = LecturesBCA
         fields = '__all__'
 
-class LectureSerializerME(serializers.ModelSerializer):
+class LectureSerializerBBI(serializers.ModelSerializer):
     class Meta:
-        model = LecturesME
+        model = LecturesBBI
         fields = '__all__'
 
-class LectureSerializerEE(serializers.ModelSerializer):
+class LectureSerializerBSC(serializers.ModelSerializer):
     class Meta:
-        model = LecturesEE
+        model = LecturesBSC
         fields = '__all__'
 
-class LectureSerializerEJ(serializers.ModelSerializer):
+class LectureSerializerBAF(serializers.ModelSerializer):
     class Meta:
-        model = LecturesEJ
+        model = LecturesBAF
         fields = '__all__'
 
 class SportsSerializer(serializers.ModelSerializer):
