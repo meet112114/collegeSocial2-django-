@@ -4,6 +4,7 @@ from django.urls import path
 from app.views.user import CreateUser , LoginUserView ,RetriveUser , UpdateUser ,DestroyUser ,RetriveAllUser , RetriveUserByID
 from app.views.post import CreatePost ,RetrivePost , RetrieveUserPosts , RetrieveAllPosts ,UpdatePost , DestroyPost , LikePost , LikePostExist
 
+from app.views.announce import BCADeleteAPIView , BSCDeleteAPIView , BAFDeleteAPIView , BBIDeleteAPIView , BMSDeleteAPIView
 
 from app.views.announce import BCACreateAPIView ,BSCCreateAPIView ,BAFCreateAPIView , BBICreateAPIView , BMSCreateAPIView 
 
@@ -48,6 +49,12 @@ urlpatterns = [
     path('announce/get/bms/', BMSListAPIView.as_view()),
     path('announce/get/bbi/', BBIListAPIView.as_view()),
     path('announce/get/baf/', BAFListAPIView.as_view()),
+
+    path('bca/delete/<int:pk>/', BCADeleteAPIView.as_view(), name='bca-delete'),
+    path('bsc/delete/<int:pk>/', BSCDeleteAPIView.as_view(), name='bsc-delete'),
+    path('baf/delete/<int:pk>/', BAFDeleteAPIView.as_view(), name='baf-delete'),
+    path('bbi/delete/<int:pk>/', BBIDeleteAPIView.as_view(), name='bbi-delete'),
+    path('bms/delete/<int:pk>/', BMSDeleteAPIView.as_view(), name='bms-delete'),
 
     path('lecture/create/bca/' , LecCreateBCA.as_view()),
     path('lecture/get/bca/' , LecGetBCA.as_view()),

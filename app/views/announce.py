@@ -44,3 +44,24 @@ class BBIListAPIView(generics.ListAPIView):
 class BMSListAPIView(generics.ListAPIView):
     queryset = BMS.objects.all()
     serializer_class = BMSSerializer
+
+
+class BCADeleteAPIView(generics.DestroyAPIView):
+    queryset = BCA.objects.all()
+    serializer_class = BCASerializer
+
+class BSCDeleteAPIView(generics.DestroyAPIView):
+    queryset = BSC.objects.all()
+    serializer_class = BSCSerializer
+
+class BAFDeleteAPIView(generics.DestroyAPIView):
+    queryset = BAF.objects.all()
+    serializer_class = BAFSerializer
+
+class BBIDeleteAPIView(generics.DestroyAPIView):
+    queryset = BBI.objects.all()
+    serializer_class = BBISerializer
+
+class BMSDeleteAPIView(generics.DestroyAPIView):
+    queryset = BMS.objects.all()
+    serializer_class = BMSSerializer

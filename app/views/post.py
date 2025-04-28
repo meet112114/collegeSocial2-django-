@@ -58,18 +58,17 @@ class DestroyPost(generics.DestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    
     def destroy(self, request, *args, **kwargs):
         try:
             pk = kwargs.get("pk")
             post = Post.objects.get(id=pk)
-            if post.user.id == request.user.id:
-                self.perform_destroy(post)
-                return Response({ "success": True, "message": "post deleted" })
-            else:
-                return Response({ "success": False, "message": "not enough permissions" })
+       
+            self.perform_destroy(post)
+            return Response({ "success": True, "message": "Post deleted" })
+      
+
         except ObjectDoesNotExist:
-            return Response({ "success": False, "message": "post does not exist" })
+            return Response({ "success": False, "message": "Post does not exist" }, status=404)
         
 class LikePostExist(APIView):
     queryset = Post.objects.all()
