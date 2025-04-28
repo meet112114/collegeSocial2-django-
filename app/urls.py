@@ -12,7 +12,7 @@ from app.views.announce import BCAListAPIView , BSCListAPIView ,BAFListAPIView ,
 
 from app.views.Lectureview import LecCreateBCA , LecCreateBSC , LecCreateBAF , LecCreateBBI , LecCreateBMS , SportsApplication , CreateComplaint
 
-from app.views.Lectureview import LecGetBCA , LecGetBSC , LecGetBAF , LecGetBBI , LecGetBMS , GetSportsApplication  , GetComplaint 
+from app.views.Lectureview import LecGetBCA , LecGetBSC , LecGetBAF , LecGetBBI , LecGetBMS , GetSportsApplication  , GetComplaint , DeleteSportsApplication ,DeleteComplaint
 
 
 from django.conf.urls.static import static
@@ -75,6 +75,9 @@ urlpatterns = [
     path('sports/get/' , GetSportsApplication.as_view()),
 
     path('complaint/create/' , CreateComplaint.as_view() ) ,
-    path('complaint/get/' , GetComplaint.as_view() ) 
+    path('complaint/get/' , GetComplaint.as_view() ),
+
+    path('sports/delete/<int:pk>/', DeleteSportsApplication.as_view()),
+    path('complaint/delete/<int:pk>/', DeleteComplaint.as_view()), 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

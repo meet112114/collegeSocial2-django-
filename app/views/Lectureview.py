@@ -70,3 +70,10 @@ class GetComplaint(generics.ListAPIView):
     queryset = Complaints.objects.all()
     serializer_class = complaintSerializers
 
+class DeleteSportsApplication(generics.DestroyAPIView):
+    queryset = Sports.objects.all()
+    serializer_class = SportsSerializer
+
+class DeleteComplaint(generics.DestroyAPIView):
+    queryset = Complaints.objects.all()
+    serializer_class = complaintSerializers
